@@ -53,37 +53,37 @@ class UserAdmin(BaseUserAdmin):
 
 @admin.register(Autor)
 class AutorAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'email')
-    search_fields = ('nome', 'email')
-    list_filter = ('nome',)
-    ordering = ('nome', 'email')
+    list_display = ("nome", "email")
+    search_fields = ("nome", "email")
+    list_filter = ("nome",)
+    ordering = ("nome", "email")
     list_per_page = 10
 
 @admin.register(Categoria)
 class CategoriaAdmin(admin.ModelAdmin):
-    list_display = ('descricao',)
-    search_fields = ('descricao',)
-    list_filter = ('descricao',)
-    ordering = ('descricao',)
+    list_display = ("descricao",)
+    search_fields = ("descricao",)
+    list_filter = ("descricao",)
+    ordering = ("descricao",)
     list_per_page = 10
 
 @admin.register(Editora)
 class EditoraAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'cidade', 'email')
-    search_fields = ('nome', 'cidade', 'email')
-    list_filter = ('nome', 'cidade', 'email')
-    ordering = ('nome', 'cidade', 'email')
+    list_display = ("nome", "cidade", "email")
+    search_fields = ("nome", "cidade", "email")
+    list_filter = ("nome", "cidade", "email")
+    ordering = ("nome", "cidade", "email")
     list_per_page = 10
 
 @admin.register(Livro)
 class LivroAdmin(admin.ModelAdmin):
-    list_display = ('titulo', 'editora', 'categoria')
-    search_fields = ('titulo', 'editora__nome', 'categoria__descricao')
-    list_filter = ('editora', 'categoria')
-    ordering = ('titulo', 'editora', 'categoria')
+    list_display = ("titulo", "editora", "categoria")
+    search_fields = ("titulo", "editora__nome", "categoria__descricao")
+    list_filter = ("editora", "categoria")
+    ordering = ("titulo", "editora", "categoria")
     list_per_page = 25
 
-class ItensCompraInline(admin.TabularInline):
+class ItensCompraInline(admin.StackedInline):
     model = ItensCompra
     extra = 1 # Quantidade de itens adicionais
 
